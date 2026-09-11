@@ -2,318 +2,1967 @@
 <html lang="es">
 <head>
 
-<link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
-<link rel="icon" href="data:,">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="DIROC Construcción y Servicios. Proyectos de construcción, remodelación, infraestructura educativa y obras públicas y privadas.">
+<meta name="theme-color" content="#07140d">
+
 <title>DIROC Construcción y Servicios</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#0b0b0b;color:white;}
-.hero{position:relative;height:95vh;overflow:hidden;}
-.slide{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s;}
-.slide.active{opacity:0.4;}
-.hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;max-width:90%;}
-.title{font-size:32px;font-weight:700;color:#d4af37;line-height:1.2;}
-.tagline{color:#ddd;margin:12px 0 10px;font-size:15px;}
-.hero-content div[style]{font-size:13px;margin-bottom:15px;}
-.logo{width:180px;margin-bottom:10px;animation:glow 2s infinite alternate;}
-@keyframes glow{
-0%{filter:drop-shadow(0 0 5px #d4af37);} 
-100%{filter:drop-shadow(0 0 20px #d4af37);} 
-}
-.title{font-size:34px;font-weight:700;color:#d4af37;}
-.tagline{color:#ddd;margin:10px 0 20px;}
-.cta{display:inline-block;margin-top:10px;padding:14px 28px;background:linear-gradient(45deg,#25D366,#1ebe5d);border-radius:10px;text-decoration:none;color:white;font-weight:600;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;}
-.cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
-.section{padding:50px 20px;max-width:1100px;margin:auto;}
-h2{text-align:center;color:#d4af37;margin-bottom:20px;}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-.item{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;}
-.item img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:0.4s;}
-.item:hover img{transform:scale(1.1);} 
-.label{position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,0.75);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:500;letter-spacing:0.3px;border:1px solid rgba(255,255,255,0.1);}
-.compare{position:relative;max-width:500px;margin:30px auto;}
-.compare img{width:100%;border-radius:12px;}
-.after{position:absolute;top:0;left:0;width:50%;overflow:hidden;}
-.slider{position:absolute;top:0;left:50%;width:3px;height:100%;background:#d4af37;cursor:ew-resize;}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:999;}
-.modal img{width:90%;max-width:600px;border-radius:10px;}
-.contact{text-align:center;padding:50px 20px;background:#111;}
-.btn-whatsapp{margin-top:15px;display:inline-block;padding:18px 30px;background:#25D366;color:white;border-radius:14px;text-decoration:none;font-weight:bold;font-size:16px;}
-.float{position:fixed;bottom:80px;right:20px;background:#25D366;padding:16px;border-radius:50%;color:white;text-decoration:none;font-size:20px;}
-.nav{position:fixed;bottom:0;width:100%;background:#000;display:flex;justify-content:space-around;padding:10px 0;}
-.nav a{color:white;text-decoration:none;font-size:12px;}
-<style>
-.close{
-position:absolute;
-top:15px;
-right:20px;
-font-size:40px;
-color:white;
-cursor:pointer;
-z-index:1000;
-padding:10px;
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+*{
+box-sizing:border-box;
 }
 
-.modal-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.6);
-border:none;
-color:white;
-font-size:35px;
-padding:15px;
-cursor:pointer;
-border-radius:10px;
-z-index:1000;
+html{
+scroll-behavior:smooth;
 }
 
-.modal-btn.left{left:10px;}
-.modal-btn.right{right:10px;}
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#050806;
+color:#fff;
+overflow-x:hidden;
+}
 
-.modal{
-display:none;
+body::before{
+content:"";
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.95);
+background:
+radial-gradient(circle at 10% 20%,rgba(20,100,55,.08),transparent 28%),
+radial-gradient(circle at 90% 70%,rgba(212,175,55,.05),transparent 30%);
+pointer-events:none;
+z-index:-1;
+}
+
+
+/* =========================================================
+   LOGO FLOTANTE
+========================================================= */
+
+.floating-logo{
+position:fixed;
+top:14px;
+left:14px;
+width:105px;
+padding:7px;
+background:rgba(3,10,6,.82);
+border:1px solid rgba(212,175,55,.55);
+border-radius:12px;
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+box-shadow:
+0 5px 25px rgba(0,0,0,.45),
+0 0 18px rgba(212,175,55,.10);
+z-index:900;
+transition:
+transform .35s ease,
+opacity .35s ease,
+width .35s ease;
+}
+
+.floating-logo img{
+display:block;
+width:100%;
+height:auto;
+}
+
+.floating-logo::after{
+content:"";
+position:absolute;
+left:10%;
+right:10%;
+bottom:-3px;
+height:2px;
+background:linear-gradient(
+90deg,
+transparent,
+#d4af37,
+#39a85a,
+#d4af37,
+transparent
+);
+}
+
+@media(max-width:600px){
+
+.floating-logo{
+top:10px;
+left:10px;
+width:86px;
+padding:5px;
+border-radius:10px;
+}
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+position:relative;
+height:95vh;
+min-height:650px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.slide{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 1.2s ease;
+}
+
+.slide.active{
+opacity:.38;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.78) 0%,
+rgba(4,16,9,.55) 45%,
+rgba(0,0,0,.92) 100%
+);
+z-index:1;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+90deg,
+rgba(4,24,13,.45),
+transparent 50%,
+rgba(0,0,0,.35)
+);
+z-index:1;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+width:92%;
+max-width:700px;
+text-align:center;
+padding:30px 20px;
+}
+
+.logo{
+width:190px;
+max-width:65%;
+margin-bottom:18px;
+animation:glow 2.5s infinite alternate;
+}
+
+@keyframes glow{
+
+0%{
+filter:
+drop-shadow(0 0 5px rgba(212,175,55,.5));
+}
+
+100%{
+filter:
+drop-shadow(0 0 22px rgba(212,175,55,.9));
+}
+
+}
+
+.title{
+font-size:36px;
+font-weight:800;
+line-height:1.15;
+color:#d4af37;
+text-shadow:0 3px 20px rgba(0,0,0,.8);
+}
+
+.tagline{
+color:#eee;
+font-size:16px;
+line-height:1.6;
+margin:14px auto 12px;
+max-width:620px;
+}
+
+.hero-description{
+margin-top:10px;
+font-size:14px;
+line-height:1.6;
+color:#c8c8c8;
+}
+
+.cta{
+display:inline-block;
+margin-top:22px;
+padding:14px 30px;
+background:linear-gradient(
+135deg,
+#25D366,
+#159447
+);
+border:1px solid rgba(255,255,255,.15);
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:700;
+box-shadow:
+0 7px 25px rgba(0,0,0,.4),
+0 0 15px rgba(37,211,102,.15);
+transition:
+transform .3s ease,
+box-shadow .3s ease;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:
+0 12px 30px rgba(0,0,0,.55),
+0 0 20px rgba(37,211,102,.25);
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.section{
+position:relative;
+padding:70px 20px;
+max-width:1150px;
+margin:auto;
+}
+
+.section::before{
+content:"";
+display:block;
+width:65px;
+height:3px;
+margin:0 auto 18px;
+background:linear-gradient(
+90deg,
+#39a85a,
+#d4af37
+);
+border-radius:10px;
+}
+
+h2{
+text-align:center;
+color:#d4af37;
+font-size:27px;
+line-height:1.25;
+margin:0 0 20px;
+font-weight:700;
+}
+
+.intro-text{
+text-align:center;
+color:#cfcfcf;
+max-width:760px;
+margin:0 auto;
+font-size:15px;
+line-height:1.8;
+}
+
+
+/* =========================================================
+   ENCABEZADO DE CADA PROYECTO
+========================================================= */
+
+.project-header{
+position:relative;
+margin-bottom:24px;
+padding:22px 20px;
+border-radius:15px;
+background:
+linear-gradient(
+135deg,
+rgba(8,31,18,.95),
+rgba(5,12,8,.95)
+);
+border:1px solid rgba(212,175,55,.18);
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+overflow:hidden;
+}
+
+.project-header::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:5px;
+height:100%;
+background:linear-gradient(
+180deg,
+#d4af37,
+#39a85a
+);
+}
+
+.project-number{
+font-size:11px;
+font-weight:700;
+letter-spacing:2px;
+color:#55c978;
+text-transform:uppercase;
+margin-bottom:7px;
+padding-left:4px;
+}
+
+.project-title{
+font-size:23px;
+font-weight:700;
+color:#f0c94d;
+line-height:1.3;
+padding-left:4px;
+}
+
+.project-subtitle{
+font-size:12px;
+color:#a9b3ac;
+margin-top:7px;
+padding-left:4px;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.item{
+position:relative;
+overflow:hidden;
+border-radius:14px;
+cursor:pointer;
+background:#0b120e;
+border:1px solid rgba(212,175,55,.14);
+box-shadow:
+0 8px 25px rgba(0,0,0,.35);
+aspect-ratio:1/1;
+transition:
+transform .35s ease,
+border-color .35s ease,
+box-shadow .35s ease;
+}
+
+.item::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+180deg,
+transparent 55%,
+rgba(0,0,0,.55) 100%
+);
+pointer-events:none;
+}
+
+.item:hover{
+transform:translateY(-4px);
+border-color:rgba(212,175,55,.55);
+box-shadow:
+0 12px 35px rgba(0,0,0,.55),
+0 0 18px rgba(212,175,55,.08);
+}
+
+.item img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+transition:transform .5s ease;
+}
+
+.item:hover img{
+transform:scale(1.045);
+}
+
+.label{
+position:absolute;
+z-index:2;
+bottom:10px;
+left:10px;
+background:rgba(0,0,0,.76);
+color:#fff;
+padding:6px 11px;
+border-radius:7px;
+font-size:11px;
+font-weight:600;
+letter-spacing:.4px;
+border:1px solid rgba(212,175,55,.35);
+}
+
+.photo-hint{
+position:absolute;
+z-index:3;
+top:10px;
+right:10px;
+width:30px;
+height:30px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:rgba(0,0,0,.62);
+border:1px solid rgba(255,255,255,.18);
+font-size:14px;
+}
+
+
+/* =========================================================
+   SEPARADOR ENTRE PROYECTOS
+========================================================= */
+
+.project-divider{
+width:100%;
+height:1px;
+margin:15px auto 5px;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(57,168,90,.45),
+rgba(212,175,55,.45),
+transparent
+);
+}
+
+
+/* =========================================================
+   MODAL / VISOR DE FOTOGRAFÍAS
+========================================================= */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+background:
+rgba(0,0,0,.96);
 justify-content:center;
 align-items:center;
-z-index:999;
+z-index:2000;
+padding:70px 55px 80px;
+opacity:0;
+transition:opacity .25s ease;
+touch-action:pan-y;
+}
+
+.modal.show{
+display:flex;
+opacity:1;
+}
+
+.modal-content{
+position:relative;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .modal img{
-width:90%;
-max-width:600px;
+display:block;
+max-width:90vw;
+max-height:78vh;
+width:auto;
+height:auto;
+object-fit:contain;
 border-radius:10px;
+box-shadow:
+0 15px 50px rgba(0,0,0,.75),
+0 0 35px rgba(212,175,55,.08);
+user-select:none;
+-webkit-user-select:none;
 pointer-events:none;
+animation:photoIn .32s ease;
 }
+
+@keyframes photoIn{
+
+from{
+opacity:0;
+transform:scale(.96);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+
+/* =========================================================
+   CABECERA DEL VISOR
+========================================================= */
+
+.modal-project{
+position:absolute;
+top:-47px;
+left:0;
+right:0;
+text-align:center;
+color:#d4af37;
+font-size:13px;
+font-weight:600;
+letter-spacing:.3px;
+}
+
+.photo-counter{
+position:absolute;
+bottom:-48px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(0,0,0,.75);
+border:1px solid rgba(212,175,55,.35);
+color:#eee;
+padding:7px 14px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.close{
+position:absolute;
+top:-60px;
+right:-35px;
+width:48px;
+height:48px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid rgba(255,255,255,.22);
+background:rgba(20,20,20,.85);
+color:white;
+border-radius:50%;
+font-size:25px;
+font-weight:400;
+cursor:pointer;
+z-index:20;
+transition:
+background .25s ease,
+transform .25s ease;
+}
+
+.close:hover{
+background:#d4af37;
+color:#050505;
+transform:rotate(90deg);
+}
+
+
+/* =========================================================
+   FLECHAS DEL VISOR
+========================================================= */
+
+.modal-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:52px;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,.62);
+border:1px solid rgba(212,175,55,.35);
+color:#fff;
+font-size:30px;
+border-radius:12px;
+cursor:pointer;
+z-index:20;
+transition:
+background .25s ease,
+border-color .25s ease,
+transform .25s ease;
+}
+
+.modal-btn:hover{
+background:rgba(212,175,55,.92);
+color:#050505;
+border-color:#d4af37;
+}
+
+.modal-btn.left{
+left:-75px;
+}
+
+.modal-btn.right{
+right:-75px;
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.contact{
+position:relative;
+text-align:center;
+padding:70px 20px 100px;
+background:
+linear-gradient(
+180deg,
+#08110c,
+#030504
+);
+border-top:1px solid rgba(212,175,55,.16);
+}
+
+.contact::before{
+content:"";
+position:absolute;
+top:0;
+left:10%;
+right:10%;
+height:1px;
+background:
+linear-gradient(
+90deg,
+transparent,
+#d4af37,
+#39a85a,
+#d4af37,
+transparent
+);
+}
+
+.contact h2{
+margin-bottom:25px;
+}
+
+.contact p{
+color:#ddd;
+}
+
+.btn-whatsapp{
+margin-top:15px;
+display:inline-block;
+padding:17px 30px;
+background:linear-gradient(
+135deg,
+#25D366,
+#159447
+);
+color:white;
+border-radius:12px;
+text-decoration:none;
+font-weight:700;
+font-size:15px;
+box-shadow:0 8px 25px rgba(0,0,0,.4);
+transition:.3s;
+}
+
+.btn-whatsapp:hover{
+transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   WHATSAPP FLOTANTE
+========================================================= */
+
+.float{
+position:fixed;
+bottom:78px;
+right:18px;
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#25D366;
+border:3px solid rgba(255,255,255,.12);
+border-radius:50%;
+color:white;
+text-decoration:none;
+font-size:22px;
+z-index:850;
+box-shadow:
+0 5px 20px rgba(0,0,0,.45),
+0 0 15px rgba(37,211,102,.18);
+transition:transform .3s ease;
+}
+
+.float:hover{
+transform:scale(1.08);
+}
+
+
+/* =========================================================
+   NAVEGACIÓN INFERIOR
+========================================================= */
+
+.nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:58px;
+background:rgba(0,0,0,.94);
+border-top:1px solid rgba(212,175,55,.16);
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:800;
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+}
+
+.nav a{
+color:#ddd;
+text-decoration:none;
+font-size:12px;
+font-weight:500;
+padding:8px 18px;
+border-radius:8px;
+transition:.25s;
+}
+
+.nav a:hover{
+color:#d4af37;
+background:rgba(212,175,55,.07);
+}
+
+
+/* =========================================================
+   ANIMACIÓN AL APARECER LOS PROYECTOS
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(25px);
+transition:
+opacity .7s ease,
+transform .7s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(min-width:700px){
+
+.gallery{
+grid-template-columns:repeat(3,1fr);
+}
+
+.section{
+padding-left:30px;
+padding-right:30px;
+}
+
+.project-title{
+font-size:25px;
+}
+
+}
+
+
+/* =========================================================
+   COMPUTADORA
+========================================================= */
+
+@media(min-width:1000px){
+
+.hero-content{
+max-width:800px;
+}
+
+.title{
+font-size:45px;
+}
+
+.tagline{
+font-size:18px;
+}
+
+.gallery{
+grid-template-columns:repeat(4,1fr);
+}
+
+.section{
+padding-top:80px;
+padding-bottom:80px;
+}
+
+.floating-logo{
+width:130px;
+top:20px;
+left:20px;
+}
+
+}
+
+
+/* =========================================================
+   MÓVILES
+========================================================= */
+
+@media(max-width:600px){
+
+.hero{
+height:100svh;
+min-height:620px;
+}
+
+.hero-content{
+padding:20px 10px;
+}
+
+.logo{
+width:145px;
+max-width:55%;
+}
+
+.title{
+font-size:28px;
+}
+
+.tagline{
+font-size:14px;
+line-height:1.55;
+}
+
+.hero-description{
+font-size:12px;
+}
+
+.cta{
+padding:13px 25px;
+}
+
+.section{
+padding:55px 15px;
+}
+
+h2{
+font-size:23px;
+}
+
+.intro-text{
+font-size:13px;
+line-height:1.7;
+}
+
+.project-header{
+padding:18px 15px;
+}
+
+.project-title{
+font-size:20px;
+}
+
+.project-subtitle{
+font-size:11px;
+}
+
+.gallery{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.item{
+border-radius:11px;
+}
+
+.label{
+bottom:7px;
+left:7px;
+font-size:10px;
+padding:5px 8px;
+}
+
+.photo-hint{
+width:27px;
+height:27px;
+font-size:12px;
+}
+
+.modal{
+padding:65px 20px 75px;
+}
+
+.modal img{
+max-width:94vw;
+max-height:72vh;
+border-radius:7px;
+}
+
+.modal-project{
+top:-42px;
+font-size:11px;
+padding:0 45px;
+}
+
+.close{
+top:-55px;
+right:-7px;
+width:50px;
+height:50px;
+font-size:24px;
+}
+
+.modal-btn{
+width:43px;
+height:58px;
+font-size:25px;
+border-radius:9px;
+}
+
+.modal-btn.left{
+left:-10px;
+}
+
+.modal-btn.right{
+right:-10px;
+}
+
+.photo-counter{
+bottom:-44px;
+font-size:11px;
+}
+
+.float{
+width:52px;
+height:52px;
+right:15px;
+bottom:72px;
+}
+
+.nav{
+height:55px;
+}
+
+.nav a{
+font-size:11px;
+padding:7px 12px;
+}
+
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+scroll-behavior:auto!important;
+animation-duration:.01ms!important;
+transition-duration:.01ms!important;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HERO CON LOGO -->
+
+<!-- =====================================================
+     LOGO FLOTANTE
+===================================================== -->
+
+<div class="floating-logo">
+<img src="img/logo.png" alt="DIROC Construcción y Servicios">
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <div class="hero">
-<img src="img/slider1.jpg" class="slide active">
-<img src="img/slider2.jpg" class="slide">
-<img src="img/slider3.jpg" class="slide">
+
+<img src="img/slider1.jpg" class="slide active" alt="DIROC proyecto de construcción">
+<img src="img/slider2.jpg" class="slide" alt="DIROC obra">
+<img src="img/slider3.jpg" class="slide" alt="DIROC construcción">
 
 <div class="hero-content">
-<img src="img/logo.png" class="logo"> <!-- AQUÍ VA TU LOGO -->
-<div class="title">DIROC Construcción y Servicios</div>
-<div class="tagline">Soluciones integrales en construcción con calidad, seguridad y garantía</div>
-<div style="margin-top:10px;font-size:14px;color:#bbb;">Proyectos ejecutados en instituciones educativas, obras públicas y privadas</div>
-<a class="cta" href="https://wa.me/51925736096">Cotizar ahora</a>
+
+<img src="img/logo.png" class="logo" alt="DIROC Construcción y Servicios">
+
+<div class="title">
+DIROC Construcción y Servicios
+</div>
+
+<div class="tagline">
+Soluciones integrales en construcción con calidad, seguridad y garantía
+</div>
+
+<div class="hero-description">
+Proyectos ejecutados en instituciones educativas, obras públicas y privadas
+</div>
+
+<a class="cta" href="https://wa.me/51925736096">
+Cotizar ahora
+</a>
+
 </div>
 </div>
 
-<!-- CLIENTES / EXPERIENCIA -->
-<div class="section">
+
+<!-- =====================================================
+     CLIENTES / EXPERIENCIA
+===================================================== -->
+
+<div class="section reveal">
+
 <h2>Experiencia en obras</h2>
-<p style="text-align:center;color:#ccc;max-width:700px;margin:auto;">
-Trabajamos en proyectos de gran responsabilidad como instituciones educativas, espacios deportivos y obras para entidades de alto nivel, garantizando calidad y cumplimiento en cada etapa.
+
+<p class="intro-text">
+Trabajamos en proyectos de gran responsabilidad como instituciones educativas,
+espacios deportivos y obras para entidades de alto nivel, garantizando calidad
+y cumplimiento en cada etapa.
 </p>
+
 </div>
 
-<!-- TRANSFORMACIÓN REAL (3 IMÁGENES PROCESO) -->
-<div class="section">
-<h2>Transformación Real</h2>
+
+<!-- =====================================================
+     TRANSFORMACIÓN REAL
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto destacado
+</div>
+
+<div class="project-title">
+Transformación Real
+</div>
+
+<div class="project-subtitle">
+Evolución del proyecto desde el inicio hasta su culminación
+</div>
+
+</div>
+
 <div class="gallery">
+
 <div class="item" onclick="openModal(this)">
-<img src="img/proceso1.jpg">
+<img src="img/proceso1.jpg" alt="Transformación Real - Inicio">
 <div class="label">Inicio</div>
+<div class="photo-hint">⌕</div>
 </div>
+
 <div class="item" onclick="openModal(this)">
-<img src="img/proceso2.jpg">
+<img src="img/proceso2.jpg" alt="Transformación Real - Proceso">
 <div class="label">Proceso</div>
+<div class="photo-hint">⌕</div>
 </div>
+
 <div class="item" onclick="openModal(this)">
-<img src="img/proceso3.jpg">
+<img src="img/proceso3.jpg" alt="Transformación Real - Final">
 <div class="label">Final</div>
-</div>
-</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- VIRU -->
-<div class="section">
-<h2>Planta de tratamiento de aguas residuales - Virú</h2>
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     VIRÚ
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 01
+</div>
+
+<div class="project-title">
+Planta de tratamiento de aguas residuales - Virú
+</div>
+
+<div class="project-subtitle">
+Registro fotográfico del proyecto • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/viru1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/viru2.jpg"><div class="label">Después</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/viru3.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/viru4.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/viru1.jpg" alt="Virú - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- SARANDA -->
-<div class="section">
-<h2>Colegio Luis Alberto Sánchez - La Saranda, Pítipo</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/viru2.jpg" alt="Virú - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/viru3.jpg" alt="Virú - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/viru4.jpg" alt="Virú - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     SARANDA
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 02
+</div>
+
+<div class="project-title">
+Colegio Luis Alberto Sánchez - La Saranda, Pítipo
+</div>
+
+<div class="project-subtitle">
+Infraestructura educativa • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/saranda1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/saranda2.jpg"><div class="label">Después</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/saranda3.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/saranda4.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/saranda1.jpg" alt="La Saranda - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- CASA -->
-<div class="section">
-<h2>Casa - Remodelación</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/saranda2.jpg" alt="La Saranda - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/saranda3.jpg" alt="La Saranda - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/saranda4.jpg" alt="La Saranda - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     CASA
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 03
+</div>
+
+<div class="project-title">
+Casa - Remodelación
+</div>
+
+<div class="project-subtitle">
+Remodelación y transformación de espacios
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/casa1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/casa2.jpg"><div class="label">Después</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/casa3.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/casa4.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/casa1.jpg" alt="Casa - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- VELODROMO -->
-<div class="section">
-<h2>San José Chiclayo - Velódromo</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/casa2.jpg" alt="Casa - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/casa3.jpg" alt="Casa - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/casa4.jpg" alt="Casa - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     VELODROMO
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 04
+</div>
+
+<div class="project-title">
+San José Chiclayo - Velódromo
+</div>
+
+<div class="project-subtitle">
+Infraestructura deportiva • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/velodromo1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/velodromo2.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/velodromo1.jpg" alt="Velódromo - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- HOCKEY -->
-<div class="section">
-<h2>San José Chiclayo - Pista de Hockey</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/velodromo2.jpg" alt="Velódromo - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     HOCKEY
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 05
+</div>
+
+<div class="project-title">
+San José Chiclayo - Pista de Hockey
+</div>
+
+<div class="project-subtitle">
+Infraestructura deportiva • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/hockey1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/hockey2.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/hockey1.jpg" alt="Pista de Hockey - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- HUANCAYO -->
-<div class="section">
-<h2>Planta de Tratamiento de Aguas Residuales - Huancayo</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/hockey2.jpg" alt="Pista de Hockey - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     HUANCAYO
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 06
+</div>
+
+<div class="project-title">
+Planta de Tratamiento de Aguas Residuales - Huancayo
+</div>
+
+<div class="project-subtitle">
+Infraestructura sanitaria • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/huancayo1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/huancayo2.jpg"><div class="label">Después</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/huancayo3.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/huancayo4.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/huancayo1.jpg" alt="Huancayo - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- REQUE -->
-<div class="section">
-<h2>I.E San Martín de Tours - Reque</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/huancayo2.jpg" alt="Huancayo - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/huancayo3.jpg" alt="Huancayo - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/huancayo4.jpg" alt="Huancayo - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     REQUE
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 07
+</div>
+
+<div class="project-title">
+I.E San Martín de Tours - Reque
+</div>
+
+<div class="project-subtitle">
+Infraestructura educativa • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/reque1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/reque2.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/reque1.jpg" alt="Reque - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- MARINA -->
-<div class="section">
-<h2>Marina de Guerra - Ancón</h2>
+<div class="item" onclick="openModal(this)">
+<img src="img/reque2.jpg" alt="Reque - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+</div>
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     MARINA DE GUERRA - ANCÓN
+===================================================== -->
+
+<div class="section reveal">
+
+<div class="project-header">
+
+<div class="project-number">
+Proyecto 08
+</div>
+
+<div class="project-title">
+Marina de Guerra - Ancón
+</div>
+
+<div class="project-subtitle">
+Infraestructura institucional • Antes y después
+</div>
+
+</div>
+
 <div class="gallery">
-<div class="item" onclick="openModal(this)"><img src="img/ancon1.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/ancon2.jpg"><div class="label">Después</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/ancon3.jpg"><div class="label">Antes</div></div>
-<div class="item" onclick="openModal(this)"><img src="img/ancon4.jpg"><div class="label">Después</div></div>
-</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/ancon1.jpg" alt="Marina de Guerra Ancón - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="modal" onclick="closeModal(event)">
-  
-  <span class="close" onclick="closeModal(event)">✕</span>
+<div class="item" onclick="openModal(this)">
+<img src="img/ancon2.jpg" alt="Marina de Guerra Ancón - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
 
-  <button class="modal-btn left" onclick="prevImage(event)">❮</button>
-  
-  <img id="modalImg">
-  
-  <button class="modal-btn right" onclick="nextImage(event)">❯</button>
+<div class="item" onclick="openModal(this)">
+<img src="img/ancon3.jpg" alt="Marina de Guerra Ancón - Antes">
+<div class="label">Antes</div>
+<div class="photo-hint">⌕</div>
+</div>
+
+<div class="item" onclick="openModal(this)">
+<img src="img/ancon4.jpg" alt="Marina de Guerra Ancón - Después">
+<div class="label">Después</div>
+<div class="photo-hint">⌕</div>
+</div>
 
 </div>
-<!-- CONTACTO -->
+
+<div class="project-divider"></div>
+
+</div>
+
+
+<!-- =====================================================
+     VISOR DE FOTOGRAFÍAS
+===================================================== -->
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<div class="modal-project" id="modalProject">
+</div>
+
+<button
+class="close"
+type="button"
+onclick="closeModal()"
+aria-label="Cerrar">
+×
+</button>
+
+<button
+class="modal-btn left"
+type="button"
+onclick="prevImage(event)"
+aria-label="Fotografía anterior">
+‹
+</button>
+
+<img
+id="modalImg"
+src=""
+alt="Fotografía del proyecto">
+
+<button
+class="modal-btn right"
+type="button"
+onclick="nextImage(event)"
+aria-label="Fotografía siguiente">
+›
+</button>
+
+<div class="photo-counter" id="photoCounter">
+1 / 1
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
 <div class="contact">
+
 <h2>Cotiza tu proyecto</h2>
-<p><strong>Jaime Perleche Damián</strong></p>
-<p>📞 925 736 096</p>
-<a class="btn-whatsapp" href="https://wa.me/51925736096">Escribir por WhatsApp</a>
+
+<p>
+<strong>Jaime Perleche Damián</strong>
+</p>
+
+<p>
+📞 925 736 096
+</p>
+
+<a
+class="btn-whatsapp"
+href="https://wa.me/51925736096">
+Escribir por WhatsApp
+</a>
+
 </div>
 
-<a href="https://wa.me/51925736096" class="float">💬</a>
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+href="https://wa.me/51925736096"
+class="float"
+aria-label="Contactar por WhatsApp">
+💬
+</a>
+
+
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
 
 <div class="nav">
-<a href="#">Inicio</a>
-<a href="https://facebook.com/dirocsa">Facebook</a>
-<a href="https://instagram.com/dirocsa">Instagram</a>
+
+<a href="#">
+Inicio
+</a>
+
+<a href="https://facebook.com/dirocsa">
+Facebook
+</a>
+
+<a href="https://instagram.com/dirocsa">
+Instagram
+</a>
+
 </div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-// 🔥 VARIABLES
+/* =========================================================
+   SLIDER DEL HERO
+========================================================= */
+
+let slides=document.querySelectorAll('.slide');
+let slideIndex=0;
+
+if(slides.length>1){
+
+setInterval(function(){
+
+slides[slideIndex].classList.remove('active');
+
+slideIndex=(slideIndex+1)%slides.length;
+
+slides[slideIndex].classList.add('active');
+
+},4000);
+
+}
+
+
+/* =========================================================
+   VISOR DE FOTOGRAFÍAS
+========================================================= */
+
 let currentGallery=[];
 let currentIndex=0;
+let currentProjectName="";
 
-// ABRIR
+const modal=document.getElementById("modal");
+const modalImg=document.getElementById("modalImg");
+const modalProject=document.getElementById("modalProject");
+const photoCounter=document.getElementById("photoCounter");
+
+
+/* =========================================================
+   ABRIR PROYECTO
+========================================================= */
+
 function openModal(el){
-const gallery=el.closest('.gallery');
-const images=gallery.querySelectorAll('img');
+
+const gallery=el.closest(".gallery");
+
+if(!gallery){
+return;
+}
+
+const section=gallery.closest(".section");
+
+const images=gallery.querySelectorAll("img");
 
 currentGallery=Array.from(images);
-currentIndex=currentGallery.indexOf(el.querySelector('img'));
 
-document.getElementById('modal').style.display='flex';
-updateModal();
+const clickedImage=el.querySelector("img");
+
+currentIndex=currentGallery.indexOf(clickedImage);
+
+if(currentIndex<0){
+currentIndex=0;
 }
 
-// ACTUALIZAR
+
+/* Obtener nombre del proyecto */
+
+const titleElement=section.querySelector(".project-title");
+
+if(titleElement){
+currentProjectName=titleElement.textContent.trim();
+}else{
+currentProjectName="";
+}
+
+modalProject.textContent=currentProjectName;
+
+modal.style.display="flex";
+
+requestAnimationFrame(function(){
+
+modal.classList.add("show");
+
+});
+
+updateModal();
+
+document.body.style.overflow="hidden";
+
+}
+
+
+/* =========================================================
+   ACTUALIZAR FOTOGRAFÍA
+========================================================= */
+
 function updateModal(){
-document.getElementById('modalImg').src=currentGallery[currentIndex].src;
+
+if(!currentGallery.length){
+return;
 }
 
-// SIGUIENTE
-function nextImage(e){
-e.stopPropagation();
+const image=currentGallery[currentIndex];
+
+modalImg.classList.remove("photo-changing");
+
+void modalImg.offsetWidth;
+
+modalImg.src=image.src;
+
+modalImg.alt=image.alt || currentProjectName;
+
+photoCounter.textContent=
+(currentIndex+1)+" / "+currentGallery.length;
+
+}
+
+
+/* =========================================================
+   SIGUIENTE
+========================================================= */
+
+function nextImage(event){
+
+if(event){
+event.stopPropagation();
+}
+
+if(!currentGallery.length){
+return;
+}
+
 currentIndex=(currentIndex+1)%currentGallery.length;
+
 updateModal();
+
 }
 
-// ANTERIOR
-function prevImage(e){
-e.stopPropagation();
-currentIndex=(currentIndex-1+currentGallery.length)%currentGallery.length;
+
+/* =========================================================
+   ANTERIOR
+========================================================= */
+
+function prevImage(event){
+
+if(event){
+event.stopPropagation();
+}
+
+if(!currentGallery.length){
+return;
+}
+
+currentIndex=
+(currentIndex-1+currentGallery.length)
+%currentGallery.length;
+
 updateModal();
+
 }
 
-// CERRAR (CLIC FUERA)
-function closeModal(e){
-if(e.target.id === "modal" || e.target.classList.contains("close")){
-document.getElementById('modal').style.display='none';
-}
+
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
+
+function closeModal(){
+
+modal.classList.remove("show");
+
+setTimeout(function(){
+
+modal.style.display="none";
+
+},220);
+
+document.body.style.overflow="";
+
 }
 
-// 📱 SWIPE
-let startX=0;
 
-document.getElementById("modal").addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
+/* =========================================================
+   CERRAR TOCANDO EL FONDO
+========================================================= */
+
+modal.addEventListener("click",function(event){
+
+if(
+event.target===modal ||
+event.target.classList.contains("modal-content")
+){
+closeModal();
+}
+
 });
 
-document.getElementById("modal").addEventListener("touchend",e=>{
-let endX=e.changedTouches[0].clientX;
 
-if(startX-endX>50) nextImage(e);
-if(endX-startX>50) prevImage(e);
+/* =========================================================
+   SWIPE EN CELULAR
+========================================================= */
+
+let touchStartX=0;
+let touchStartY=0;
+
+modal.addEventListener("touchstart",function(event){
+
+if(!event.touches.length){
+return;
+}
+
+touchStartX=event.touches[0].clientX;
+touchStartY=event.touches[0].clientY;
+
+},{passive:true});
+
+
+modal.addEventListener("touchend",function(event){
+
+if(!event.changedTouches.length){
+return;
+}
+
+const touchEndX=event.changedTouches[0].clientX;
+const touchEndY=event.changedTouches[0].clientY;
+
+const differenceX=touchEndX-touchStartX;
+const differenceY=touchEndY-touchStartY;
+
+
+/*
+Solo interpretamos como swipe si el movimiento
+horizontal es claramente mayor al vertical.
+*/
+
+if(
+Math.abs(differenceX)>50 &&
+Math.abs(differenceX)>Math.abs(differenceY)
+){
+
+if(differenceX<0){
+
+nextImage();
+
+}else{
+
+prevImage();
+
+}
+
+}
+
+},{passive:true});
+
+
+/* =========================================================
+   TECLADO
+========================================================= */
+
+document.addEventListener("keydown",function(event){
+
+if(modal.style.display!=="flex"){
+return;
+}
+
+if(event.key==="ArrowRight"){
+nextImage();
+}
+
+if(event.key==="ArrowLeft"){
+prevImage();
+}
+
+if(event.key==="Escape"){
+closeModal();
+}
+
 });
 
-// 🔥 IMÁGENES ROTAS
-document.querySelectorAll("img").forEach(img=>{
-img.onerror=function(){
-this.src="https://via.placeholder.com/600x600?text=Imagen+no+disponible";
+
+/* =========================================================
+   PREVENIR IMÁGENES ROTAS VISIBLES
+========================================================= */
+
+document.querySelectorAll("img").forEach(function(img){
+
+img.addEventListener("error",function(){
+
+this.style.visibility="hidden";
+
+this.parentElement.classList.add("image-error");
+
+});
+
+});
+
+
+/* =========================================================
+   ANIMACIÓN AL HACER SCROLL
+========================================================= */
+
+const revealElements=
+document.querySelectorAll(".reveal");
+
+const revealObserver=
+new IntersectionObserver(function(entries){
+
+entries.forEach(function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+revealObserver.unobserve(entry.target);
+
 }
+
+});
+
+},{
+threshold:.08
+});
+
+
+revealElements.forEach(function(element){
+
+revealObserver.observe(element);
+
 });
 
 </script>
